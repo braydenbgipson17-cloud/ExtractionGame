@@ -31,4 +31,6 @@ public class WeaponController : MonoBehaviour
         }
         projectile.SetMoveDirection(_firePoint.forward);
     }
+
+    
 }

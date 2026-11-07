@@ -1,10 +1,12 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     private Vector3 _moveDir;
     [SerializeField] private float _velocity;
-
+    [SerializeField] private float _weight;
+    private float constant = 450436f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +26,22 @@ public class Projectile : MonoBehaviour
 
     public void MoveProjectile()
     {
+        DetectCollisions();
         transform.position += _moveDir * _velocity * Time.deltaTime;
     }
-    
+
+    void DetectCollisions()
+    {
+        if (Physics.Raycast(transform.position, _moveDir, out RaycastHit hitInfo, _velocity * Time.deltaTime))
+        {
+            Debug.Log("Hit: " + hitInfo.collider.name + " Hit Force: " + CalculateImpactForce() + "ft-lbs");
+            Destroy(gameObject);
+        }
+        
+    }
+
+    float CalculateImpactForce()
+    {
+        return (_weight * _velocity * _velocity) / constant;
+    }
 }
