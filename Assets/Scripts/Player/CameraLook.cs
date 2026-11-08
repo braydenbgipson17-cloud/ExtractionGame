@@ -13,6 +13,8 @@ public class CameraLook : MonoBehaviour
     void Start()
     {
         InputManager.Instance.OnPlayerLook += SetMouseDirection;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

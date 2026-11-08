@@ -1,8 +1,8 @@
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private float _damage; // will come from data later also i want energy to play a role into this as well as roun type later flat for now 
     private Vector3 _moveDir;
     [SerializeField] private float _velocity;
     [SerializeField] private float _weight;
@@ -34,8 +34,9 @@ public class Projectile : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, _moveDir, out RaycastHit hitInfo, _velocity * Time.deltaTime))
         {
+            if (hitInfo.collider.TryGetComponent<IDamageable>(out var target)) { target.TakeDamage(_damage); }
             Debug.Log("Hit: " + hitInfo.collider.name + " Hit Force: " + CalculateImpactForce() + "ft-lbs");
-            Destroy(gameObject);
+            Destroy(gameObject); // place holder when penitration and other things come we wont always want to destroy the gameobject
         }
         
     }
