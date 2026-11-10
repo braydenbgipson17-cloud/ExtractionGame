@@ -9,6 +9,8 @@ public class CameraLook : MonoBehaviour
     private float _pitchDelta;
     private Vector2 _mouseDirection;
 
+   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +23,7 @@ public class CameraLook : MonoBehaviour
     void Update()
     {
         Look();
+       
     }
 
     void SetMouseDirection(Vector2 mouseDirection)
@@ -39,4 +42,7 @@ public class CameraLook : MonoBehaviour
         _pitchDelta = Mathf.Clamp(_pitchDelta, -90, 90);
        transform.localRotation = Quaternion.Euler(_pitchDelta, 0, 0);  
     }
+
+
+   
 }

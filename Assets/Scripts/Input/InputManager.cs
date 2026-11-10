@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public event Action<Vector2> OnPlayerMove;
     public event Action<Vector2> OnPlayerLook;
     public event Action OnPlayerFire;
+    public event Action OnPlayerInteract;
     private void Awake()
     {
         if (Instance == null)
@@ -36,6 +37,7 @@ public class InputManager : MonoBehaviour
         _inputActions.Player.Look.performed += PlayerLook;
         _inputActions.Player.Look.canceled += PlayerLook;
         _inputActions.Player.Fire.performed += PlayerFire;
+        _inputActions.Player.Interact.performed += PlayerInteract;
     }
 
     private void OnDisable()
@@ -46,6 +48,7 @@ public class InputManager : MonoBehaviour
         _inputActions.Player.Look.performed -= PlayerLook;
         _inputActions.Player.Look.canceled -= PlayerLook;
         _inputActions.Player.Fire.performed -= PlayerFire;
+        _inputActions.Player.Interact.performed -= PlayerInteract;
     }
 
 
@@ -62,6 +65,11 @@ public class InputManager : MonoBehaviour
     public void PlayerFire(InputAction.CallbackContext context)
     {
         OnPlayerFire?.Invoke();
+    }
+
+    public void PlayerInteract(InputAction.CallbackContext context)
+    {
+        OnPlayerInteract?.Invoke();
     }
    
 }
