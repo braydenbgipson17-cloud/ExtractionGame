@@ -5,9 +5,9 @@ public class InteractionRay : MonoBehaviour
 
     [SerializeField] private float _interactionRange;
 
-    [SerializeField] PlayerItemHandler _itemHandler; // starting to get a lot of refs these two will talk for this test but they shouldnt talk like this 
+    [SerializeField] private EntityIdentity _entityID;
 
-    IInteractable _currentInteractable;
+    IInteractable _currentInteractable; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +35,7 @@ public class InteractionRay : MonoBehaviour
                 _currentInteractable = interactable;
                
             }
+            else { _currentInteractable = null; }
         }
         else { _currentInteractable = null;}
     }
@@ -43,7 +44,7 @@ public class InteractionRay : MonoBehaviour
     {
         if (_currentInteractable != null)
         {
-            _currentInteractable.InteractAction(_itemHandler);
+            _currentInteractable.InteractAction(_entityID);
         }
     }
 }

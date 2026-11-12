@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerItemHandler : MonoBehaviour
+public class ItemHandler : MonoBehaviour
 {
     private Inventory inventory = new Inventory();
 

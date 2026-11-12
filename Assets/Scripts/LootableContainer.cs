@@ -4,17 +4,25 @@ public class LootableContainer : MonoBehaviour, ILootable, IInteractable
 {
     [SerializeField] private ItemData _item;
    
-    
+    bool _isLootable;
 
     void Start()
     {
-        enabled = false;
+        _isLootable = false;
     }
 
     //later an inventory we fill via loot pools and shtuff
 
-    public void InteractAction(PlayerItemHandler itemHandler)
+    public void InteractAction(IInteractor interactor)
     {
-        itemHandler.AddItem(_item);
+        if (_isLootable)
+        {
+            interactor.ItemHandler.AddItem(_item);
+        }
+    }
+
+    public void SetLootable(bool isLootable)
+    {
+        _isLootable=isLootable;
     }
 }

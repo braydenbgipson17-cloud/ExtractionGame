@@ -32,13 +32,15 @@ public class Projectile : MonoBehaviour
 
     void DetectCollisions()
     {
+        
         if (Physics.Raycast(transform.position, _moveDir, out RaycastHit hitInfo, _velocity * Time.deltaTime))
         {
             if (hitInfo.collider.TryGetComponent<IDamageable>(out var target)) { target.TakeDamage(_damage); }
             Debug.Log("Hit: " + hitInfo.collider.name + " Hit Force: " + CalculateImpactForce() + "ft-lbs");
             Destroy(gameObject); // place holder when penitration and other things come we wont always want to destroy the gameobject
+            
         }
-        
+       
     }
 
     float CalculateImpactForce()

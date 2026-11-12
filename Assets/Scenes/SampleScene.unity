@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionRay
   _interactionRange: 3
-  _itemHandler: {fileID: 1982187456}
+  _entityID: {fileID: 1982187461}
 --- !u!4 &1982187455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5366241355216148580, guid: 6d779e2fa3705514685d378481e4ef73, type: 3}
@@ -1038,6 +1038,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee77efbb5facc5c468b7b1b467585d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerItemHandler
+--- !u!114 &1982187461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742411887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e99c76fca1f74cb7f44f1ba92fe8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityIdentity
+  _itemHandler: {fileID: 1982187456}
 --- !u!1001 &5980385676112577635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1105,6 +1118,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 551203979903150774, guid: 6d779e2fa3705514685d378481e4ef73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1982187456}
+    - targetCorrespondingSourceObject: {fileID: 551203979903150774, guid: 6d779e2fa3705514685d378481e4ef73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1982187461}
     - targetCorrespondingSourceObject: {fileID: 4357938771181348676, guid: 6d779e2fa3705514685d378481e4ef73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1748054975}

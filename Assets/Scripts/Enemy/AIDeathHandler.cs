@@ -15,7 +15,7 @@ public class AIDeathHandler : MonoBehaviour
     }
     void AllowLooting()
     {
-        _lootableContainer.enabled = true;
-        _enemyAIMovement.SetDeathState(true);
+      _lootableContainer.SetLootable(true);
+        _enemyAIMovement.SetDeathState(true); //temp states later just to make movemetn stop to loot 
     }
 }
