@@ -12,11 +12,13 @@ public class InputManager : MonoBehaviour
     public event Action<Vector2> OnPlayerLook;
     public event Action OnPlayerFire;
     public event Action OnPlayerInteract;
+    public event Action OnOpenInventory;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -32,23 +34,27 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.Player.Enable();
+        _inputActions.UI.Enable();
         _inputActions.Player.Move.performed += PlayerMove;
         _inputActions.Player.Move.canceled += PlayerMove;
         _inputActions.Player.Look.performed += PlayerLook;
         _inputActions.Player.Look.canceled += PlayerLook;
         _inputActions.Player.Fire.performed += PlayerFire;
         _inputActions.Player.Interact.performed += PlayerInteract;
+        _inputActions.UI.Inventory.performed += OnInventory;
     }
 
     private void OnDisable()
     {
         _inputActions.Player.Disable();
+        _inputActions.UI.Disable();
         _inputActions.Player.Move.performed -= PlayerMove;
         _inputActions.Player.Move.canceled -= PlayerMove;
         _inputActions.Player.Look.performed -= PlayerLook;
         _inputActions.Player.Look.canceled -= PlayerLook;
         _inputActions.Player.Fire.performed -= PlayerFire;
         _inputActions.Player.Interact.performed -= PlayerInteract;
+        _inputActions.UI.Inventory.performed -= OnInventory;
     }
 
 
@@ -70,6 +76,11 @@ public class InputManager : MonoBehaviour
     public void PlayerInteract(InputAction.CallbackContext context)
     {
         OnPlayerInteract?.Invoke();
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        OnOpenInventory?.Invoke();
     }
    
 }
