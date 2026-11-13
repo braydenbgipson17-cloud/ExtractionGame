@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class ExtractionCheck : MonoBehaviour
 {
     [SerializeField] private float _extractionTimer;
-
+    [SerializeField] private SceneLoader _sceneLoader;
     private Coroutine _extractCoroutine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +46,6 @@ public class ExtractionCheck : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
-        SceneManager.LoadScene("OutlandsHub");
+        _sceneLoader.LoadHubScene();
     }
 }

@@ -3,13 +3,13 @@ using UnityEngine;
 public class EnemyAIMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private Transform _playerPos; // temp want to find a more engaging way to have ai find this out 
+     private Transform _playerPos; // temp want to find a more engaging way to have ai find this out 
 
     bool isDead = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _playerPos = FindAnyObjectByType<Player>().transform;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class EnemyAIMovement : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        Vector3 moveDirection = _playerPos.position - transform.position;
+        Vector3 moveDirection = _playerPos.position - transform.position; // will need to "inject" this on scene load for now
         moveDirection.Normalize();
         transform.position += moveDirection * _moveSpeed * Time.deltaTime;
     }
