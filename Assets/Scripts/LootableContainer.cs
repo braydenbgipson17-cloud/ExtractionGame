@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LootableContainer : MonoBehaviour, ILootable, IInteractable
 {
-    [SerializeField] private ItemData _item;
+    [SerializeField] private ItemInstance _item;
    
     bool _isLootable;
 

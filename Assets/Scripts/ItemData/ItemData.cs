@@ -1,12 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="Item", menuName = "ItemData")]
+
 public class ItemData : ScriptableObject
 {
-    //maybe unique id (still a bit unsure what an id gives me i know lookups but from here or maybe a lootenetry object
+    
     [SerializeField] private string _name;
     [SerializeField] private string _description;
-    //type 
+    [SerializeField] private ItemID _id;
+    [SerializeField] private List<ComponentType> _components;
     //weight
     //catigory?? 
     //gameobject prefab
@@ -16,4 +19,18 @@ public class ItemData : ScriptableObject
 
     public string Name => _name;
     public string Description => _description;
+    public ItemID Id => _id;
+    public IReadOnlyList<ComponentType> Components => _components;
+}
+public enum ItemID
+{
+    wallet,
+    medkit,
+    bandage,
+}
+
+public enum ComponentType
+{
+    Wallet,
+
 }

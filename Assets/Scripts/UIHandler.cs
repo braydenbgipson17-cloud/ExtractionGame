@@ -29,7 +29,7 @@ public class UIHandler : MonoBehaviour
         foreach (var item in _handler.Inventory.Items)
         {
             index++;
-            Debug.Log($"{index}: {item.Name}");
+            Debug.Log($"{index}: {item.ItemData.Name}");
         }
     }
 }

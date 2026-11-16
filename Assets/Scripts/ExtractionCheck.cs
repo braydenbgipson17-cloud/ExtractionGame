@@ -30,7 +30,7 @@ public class ExtractionCheck : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(_extractCoroutine != null)
+        if(_extractCoroutine != null && other.TryGetComponent<Player>(out Player p))
         {
             StopCoroutine(_extractCoroutine);
             _extractCoroutine = null;
