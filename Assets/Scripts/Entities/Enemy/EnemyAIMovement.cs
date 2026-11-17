@@ -23,6 +23,10 @@ public class EnemyAIMovement : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
+        if(_playerPos == null)
+        {
+            GetPlayerPos();
+        }
         Vector3 moveDirection = _playerPos.position - transform.position; // will need to "inject" this on scene load for now
         moveDirection.Normalize();
         transform.position += moveDirection * _moveSpeed * Time.deltaTime;
@@ -31,5 +35,10 @@ public class EnemyAIMovement : MonoBehaviour
     public void SetDeathState(bool isDie) //temp loot testing
     {
         isDead = isDie;
+    }
+
+    void GetPlayerPos()
+    {
+        _playerPos = FindAnyObjectByType<Player>().transform;
     }
 }

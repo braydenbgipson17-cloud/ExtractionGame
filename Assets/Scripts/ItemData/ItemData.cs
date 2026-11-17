@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     [SerializeField] private string _description;
     [SerializeField] private ItemID _id;
     [SerializeField] private List<ComponentType> _components;
+    [SerializeField] private float _price;
     //weight
     //catigory?? 
     //gameobject prefab
@@ -21,6 +22,7 @@ public class ItemData : ScriptableObject
     public string Description => _description;
     public ItemID Id => _id;
     public IReadOnlyList<ComponentType> Components => _components;
+    public float Price => _price;
 }
 public enum ItemID
 {

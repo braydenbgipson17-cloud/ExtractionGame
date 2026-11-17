@@ -19,4 +19,19 @@ public class ItemInstance
         _components.Add(component); 
     }
 
+    public bool TryGetComponent<T>(out T component)
+    {
+        component = default(T);
+
+        foreach(IItemComponent comp in _components)
+        {
+            if(comp is T)
+            {
+                component = (T)comp;
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

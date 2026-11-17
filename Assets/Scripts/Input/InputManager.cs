@@ -33,6 +33,7 @@ public class InputManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if(_inputActions == null) { return; }
         _inputActions.Player.Enable();
         _inputActions.UI.Enable();
         _inputActions.Player.Move.performed += PlayerMove;
@@ -46,6 +47,7 @@ public class InputManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_inputActions == null) { return; }
         _inputActions.Player.Disable();
         _inputActions.UI.Disable();
         _inputActions.Player.Move.performed -= PlayerMove;

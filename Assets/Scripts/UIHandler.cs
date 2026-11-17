@@ -29,7 +29,9 @@ public class UIHandler : MonoBehaviour
         foreach (var item in _handler.Inventory.Items)
         {
             index++;
-            Debug.Log($"{index}: {item.ItemData.Name}");
+            item.TryGetComponent<WalletComponent>(out var walletComponent);
+            string result = item.ItemData.Id == ItemID.wallet ? $"{index}: {item.ItemData.Name} ${walletComponent.Cash}": $"{index}: {item.ItemData.Name}"; // super place holder when ui comes this will change drasticaly along with this whole script
+             Debug.Log(result);
         }
     }
 }

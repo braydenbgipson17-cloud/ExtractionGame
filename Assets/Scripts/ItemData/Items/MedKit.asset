@@ -16,3 +16,4 @@ MonoBehaviour:
   _description: 'Heals real good '
   _id: 1
   _components: 
+  _price: 25

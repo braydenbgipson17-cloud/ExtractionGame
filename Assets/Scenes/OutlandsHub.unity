@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HubBootStrapper
   _itemDatabase: {fileID: 11400000, guid: 266b08a729cd563448fd762dde7d0cd2, type: 2}
-  Player: {fileID: 664736239}
+  _traderSell: {fileID: 1874572900}
 --- !u!1 &321635506
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 468026707}
   - component: {fileID: 468026706}
   - component: {fileID: 468026705}
+  - component: {fileID: 468026709}
   m_Layer: 0
   m_Name: Trader Buy
   m_TagString: Untagged
@@ -403,6 +404,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &468026709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468026704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e81248f3b54ad43bc5472083002ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TraderBuy
 --- !u!1 &545024599
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,17 +529,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &664736239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4510911148532516505, guid: 6d779e2fa3705514685d378481e4ef73, type: 3}
-  m_PrefabInstance: {fileID: 1427273575}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e4c3ddfd2373140915424fba81ab5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &965385402
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +890,7 @@ GameObject:
   - component: {fileID: 1874572898}
   - component: {fileID: 1874572897}
   - component: {fileID: 1874572896}
+  - component: {fileID: 1874572900}
   m_Layer: 0
   m_Name: Trader Sell
   m_TagString: Untagged
@@ -988,6 +991,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874572900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874572895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8238088524d0ec48a832decefe8eec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TraderSell
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

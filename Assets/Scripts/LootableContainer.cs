@@ -18,11 +18,17 @@ public class LootableContainer : MonoBehaviour, ILootable, IInteractable
         if (_isLootable)
         {
             interactor.ItemHandler.AddItem(_item);
+            _item = null;
         }
     }
 
     public void SetLootable(bool isLootable)
     {
         _isLootable=isLootable;
+    }
+
+    public void SetLoot(ItemInstance loot)
+    {
+        _item = loot;
     }
 }
